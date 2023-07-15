@@ -1,14 +1,17 @@
-# Temel olarak kullanacağımız imajı belirliyoruz
-FROM python:3.8-slim
+# Temel Docker görüntüsünü belirliyoruz
+FROM python:3.9
 
-# Uygulama dosyalarını çalışma dizinine kopyalıyoruz
-COPY . /app
-
-# Uygulamanın çalışacağı dizini belirliyoruz
+# Uygulama klasörünü oluşturup ve çalışma dizini olarak ayarlıyoruz
 WORKDIR /app
 
-# Bağımlılıkları yüklüyoruz
+# Gerekli bağımlılıkları kopyalıyoruz
+COPY requirements.txt .
+
+# Bağımlılıkları yükleyip devam ediyoruz
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Uygulamayı çalıştırıyoruz
+# Uygulama kodunu kopyalıyoruz
+COPY . .
+
+# Uygulamayı çalıştırıyoruz - son adım
 CMD ["python", "app.py"]
