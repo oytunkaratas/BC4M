@@ -13,8 +13,5 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Uygulama kodunu kopyalıyoruz
 COPY . .
 
-#Container'ın bağlantı noktasını belirtiyoruz
-EXPOSE 80
-
 # Uygulamayı çalıştırıyoruz - son adım
 CMD ["python", "app.py"]
