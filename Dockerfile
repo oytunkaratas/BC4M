@@ -10,6 +10,8 @@ COPY requirements.txt .
 # Bağımlılıkları yükleyip devam ediyoruz
 RUN pip install --no-cache-dir -r requirements.txt
 
+RUN pip install gunicorn
+
 # Uygulama kodunu kopyalıyoruz
 COPY . .
 
